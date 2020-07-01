@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+
+  button {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      backdrop-filter: blur(4px) brightness(125%);
+      border-radius: 5px;
+      display: grid;
+      padding: 5px;
+    }
+
+    div {
+      padding: 5px;
+    }
+  }
+
+  .unknown {
+    cursor: not-allowed;
+  }
+
+}

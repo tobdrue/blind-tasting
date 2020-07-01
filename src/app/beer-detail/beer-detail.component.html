@@ -1,0 +1,40 @@
+<div *ngIf="beer$ | async as beer"
+     class="outer-container"
+     [ngStyle]="{'background-image': 'url(' + (breweryIconSrc | async)  + ')'}">
+  <div class="inner-container">
+    <div class="header">
+      <button mat-icon-button aria-label="Schau alle deine Biere an"
+              routerLink="/overview"
+              [queryParams]="{beerId:''}"
+              queryParamsHandling="merge">
+        <mat-icon>apps</mat-icon>
+      </button>
+    </div>
+    <div class="info">
+      <img *ngIf="beer.beer.beerIcon" mat-card-md-image [src]="beerIconSrc | async">
+      <div>Brauerei: {{beer.beer.brewery}}</div>
+      <div>Name: {{beer.beer.name}}</div>
+      <div *ngIf="beer.beer.slogan">Brauerei: {{beer.beer.slogan}}</div>
+      <div>Alkohol: {{beer.beer.alcohol}}</div>
+    </div>
+    <div class="user-stuff">
+      <div>Was hast du gedacht: {{beer.guessed}}</div>
+      <div>Wie gut wars: {{beer.rating}}</div>
+    </div>
+    <div class="additional-info">
+      <div>
+        <div>Beschreibung:</div>
+        <div [innerHTML]="beer.beer.description"></div>
+      </div>
+      <div>
+        <div>Zutaten:</div>
+        <div>{{beer.beer.ingredients}}</div>
+      </div>
+      {{beer.beer.hints}}
+      <div>
+        Website:
+        <a [href]="beer.beer.website">{{beer.beer.website}}</a>
+      </div>
+    </div>
+  </div>
+</div>

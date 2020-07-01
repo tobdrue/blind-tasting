@@ -1,0 +1,10 @@
+:host {
+  display: grid;
+  max-height: 100vh;
+  grid-template-columns: repeat(auto-fit, 250px);
+  grid-template-rows: 250px;
+  grid-gap: 10px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}

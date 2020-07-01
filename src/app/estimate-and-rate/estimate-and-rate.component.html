@@ -1,0 +1,22 @@
+<mat-card>
+  <form [formGroup]="guess">
+    <mat-form-field>
+      <input matInput placeholder="Was glaubsch was es is?" formControlName="guess" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>
+        <mat-icon>star</mat-icon>
+        Wie geil wars?
+      </mat-label>
+      <mat-select formControlName="rating" required>
+        <mat-option value=1>1</mat-option>
+        <mat-option value=2>2</mat-option>
+        <mat-option value=3>3</mat-option>
+        <mat-option value=4>4</mat-option>
+        <mat-option value=5>5</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button [disabled]="guess.invalid" (click)="setGuess()">ZUM BIER!</button>
+  </form>
+</mat-card>
+<div class="background"></div>

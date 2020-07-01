@@ -1,0 +1,14 @@
+<button *ngIf="beerSelection.guessed; else unknown"
+        mat-stroked-button
+        routerLink="/beer"
+        [queryParams]="{beerId:beerSelection.beer.id}"
+        queryParamsHandling="merge"
+        [ngStyle]="{'background-image': 'url(' + (beerIconSrc | async)  + ')'}">
+  <span>
+    <div>{{beerSelection.beer.brewery}}</div>
+    <div>{{beerSelection.beer.name}}</div>
+    </span>
+</button>
+<ng-template #unknown>
+  <button class="unknown" mat-stroked-button>?</button>
+</ng-template>
