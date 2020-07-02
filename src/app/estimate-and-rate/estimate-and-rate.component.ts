@@ -13,6 +13,10 @@ import {UserService} from '../services/user.service';
 export class EstimateAndRateComponent implements OnInit {
   public guess: FormGroup;
 
+  public set rating(rating: number) {
+    this.guess.get('rating').setValue(rating);
+  }
+
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,

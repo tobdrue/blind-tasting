@@ -12,29 +12,39 @@
     </div>
     <div class="info">
       <img *ngIf="beer.beer.beerIcon" mat-card-md-image [src]="beerIconSrc | async">
-      <div>Brauerei: {{beer.beer.brewery}}</div>
-      <div>Name: {{beer.beer.name}}</div>
-      <div *ngIf="beer.beer.slogan">Brauerei: {{beer.beer.slogan}}</div>
-      <div>Alkohol: {{beer.beer.alcohol}}</div>
+      <div class="text">
+        <div>
+          <div class="mat-small">Name:</div>
+          <div class="mat-display-3">{{beer.beer.name}}</div>
+        </div>
+        <div>
+          <div class="mat-small">Brauerei:</div>
+          <div class="mat-display-3">{{beer.beer.brewery}}</div>
+        </div>
+        <div *ngIf="beer.beer.slogan" class="mat-display-1">{{beer.beer.slogan}}</div>
+      </div>
     </div>
     <div class="user-stuff">
-      <div>Was hast du gedacht: {{beer.guessed}}</div>
-      <div>Wie gut wars: {{beer.rating}}</div>
+      <div class="mat-h2">Was hast du gedacht: <span class="guessed mat-h1">{{beer.guessed}}</span></div>
+      <div class="mat-h2">Wie gut wars:
+        <app-star-rating [disabled]="true" [rating]="beer.rating"></app-star-rating>
+      </div>
+    </div>
+    <div class="description">
+      <div class="mat-body-2">Beschreibung:</div>
+      <div [innerHTML]="beer.beer.description" class="mat-h2"></div>
     </div>
     <div class="additional-info">
+      <div><span class="mat-body-2">Alkohol:  </span>{{beer.beer.alcohol}}%</div>
       <div>
-        <div>Beschreibung:</div>
-        <div [innerHTML]="beer.beer.description"></div>
-      </div>
-      <div>
-        <div>Zutaten:</div>
+        <div class="mat-body-2">Zutaten:</div>
         <div>{{beer.beer.ingredients}}</div>
       </div>
       {{beer.beer.hints}}
-      <div>
-        Website:
-        <a [href]="beer.beer.website">{{beer.beer.website}}</a>
-      </div>
+    </div>
+    <div class="website">
+      <span class="mat-body-2">Website:  </span>
+      <a [href]="beer.beer.website">{{beer.beer.website}}</a>
     </div>
   </div>
 </div>

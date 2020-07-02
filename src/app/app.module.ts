@@ -22,6 +22,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {BeerTileComponent} from './overview/beer-tile/beer-tile.component';
 import {MatDividerModule} from "@angular/material/divider";
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatDividerModule} from "@angular/material/divider";
     BeerDetailComponent,
     OverviewComponent,
     EstimateAndRateComponent,
-    BeerTileComponent
+    BeerTileComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

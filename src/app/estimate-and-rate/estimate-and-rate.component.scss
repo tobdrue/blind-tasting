@@ -4,7 +4,7 @@
   align-items: center;
   height: 100%;
 
-  * {
+  mat-card, mat-card * {
     margin: 10px;
     z-index: 10;
   }
@@ -21,8 +21,9 @@
     left: 0;
     right: 0;
     opacity: 0.2;
-    background-color: #fafafa;
-    filter: blur(15px);
+    background-color: #b6b6b6;
+    background-image: url("../../assets/background-estimating.png");
+    filter: blur(3px);
     z-index: 1;
   }
 }

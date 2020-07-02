@@ -5,23 +5,94 @@
   justify-content: center;
   min-height: 100%;
   align-items: center;
-  background-color: #929292;
+  background-color: #d8d8d8;
   background-blend-mode: soft-light;
 
   .inner-container {
-    backdrop-filter: blur(4px) brightness(75%);
+    backdrop-filter: blur(4px);
+    background-color: #4848489c;
     display: grid;
-    grid-gap: 10px;
-    padding: 10px 40px;
+    min-height: stretch;
+
+    > * {
+      padding: 40px 40px;
+    }
 
     .header {
       display: flex;
       justify-content: space-between;
+      padding-top: 20px;
+      padding-bottom: 0;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      grid-gap: 40px;
+      padding-top: 20px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .text {
+        display: grid;
+        height: fit-content;
+        align-self: center;
+
+        .mat-display-3 {
+          font-family: 'Playfair Display SC', serif;
+        }
+
+        .mat-display-1 {
+          font-family: 'Dancing Script', cursive;
+        }
+      }
+    }
+
+    @media screen and (max-width: 796px) {
+      .info {
+        padding-left: 0;
+        padding-right: 0;
+        grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+      }
+      .text {
+        padding: 0 40px;
+      }
+    }
+
+    .user-stuff {
+      background-color: rgba(255, 255, 255, 0.36);
+
+      div {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .guessed {
+        font-family: 'Just Me Again Down Here', cursive;
+        margin: 0 0 0 10px;
+      }
+    }
+
+    .description {
+      background-color: #6464649c;
     }
 
     .additional-info {
       display: grid;
       grid-gap: 10px;
+      background-color: #ffffff80;
+
+      a {
+        word-break: break-word;
+      }
     }
   }
+}
+
+.mat-display-1, .mat-display-2, .mat-display-3, .mat-display-4 {
+  margin: 0 0 10px 0;
 }
