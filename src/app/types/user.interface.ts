@@ -1,6 +1,8 @@
-import {BeerSelection} from './beer-selection.interface';
+import {DetailGuess} from './detail-guess.interface';
 
 export interface User {
-  id: string;
-  beers: BeerSelection[];
+  name: string;
+  guessed: string;
+  rating: number;
+  detailGuess?: DetailGuess;
 }

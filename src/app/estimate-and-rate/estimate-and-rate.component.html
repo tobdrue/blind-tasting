@@ -1,15 +1,95 @@
-<mat-card>
-  <form [formGroup]="guess">
-    <mat-form-field>
-      <input matInput placeholder="Was glaubsch was es is?" formControlName="guess" required>
-    </mat-form-field>
-    <div>
-      <mat-label>
-        Wie geil wars?
-      </mat-label>
-      <app-star-rating (ratingUpdated)="rating = $event"></app-star-rating>
+<form [formGroup]="guess">
+  <span class="mat-display-3">Degustier Angaben</span>
+  <div class="tasting-help-toggle mat-headline" (click)="helpOpen = !helpOpen">Degustier Hilfe
+    <mat-icon *ngIf="helpOpen">keyboard_arrow_up</mat-icon>
+    <mat-icon *ngIf="!helpOpen">keyboard_arrow_down</mat-icon>
+  </div>
+  <div class="tasting-help-container" [class.open]="helpOpen">
+    <div class="inner-container">
+      <span class="mat-display-1">Aussehen</span>
+      <div class="selection-container">
+        <label>Farbe:</label>
+        <mat-radio-group formControlName="color">
+          <span class="mat-small">hell</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">dunkel</span>
+        </mat-radio-group>
+      </div>
+      <div class="selection-container">
+        <label>Klarheit:</label>
+        <mat-radio-group formControlName="opacity">
+          <span class="mat-small">klar</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">trüb</span>
+        </mat-radio-group>
+      </div>
+      <div class="selection-container">
+        <label>Schaum:</label>
+        <mat-radio-group formControlName="foam">
+          <span class="mat-small">wenig</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">viel</span>
+        </mat-radio-group>
+      </div>
+      <span class="mat-display-1">Geruch</span>
+      <mat-form-field>
+        <input matInput placeholder="Was riechst?" formControlName="smell">
+      </mat-form-field>
+      <span class="mat-display-1">Geschmack</span>
+      <div class="selection-container">
+        <label>Wie Süß is es?</label>
+        <mat-radio-group formControlName="sweetness">
+          <span class="mat-small">nichts</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">vollgas</span>
+        </mat-radio-group>
+      </div>
+      <div class="selection-container">
+        <label>Und wie Sauer?</label>
+        <mat-radio-group formControlName="sourness">
+          <span class="mat-small">nichts</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">vollgas</span>
+        </mat-radio-group>
+      </div>
+      <div class="bitterness-group selection-container">
+        <label>Und noch wie Bitter?</label>
+        <mat-radio-group formControlName="bitterness">
+          <span class="mat-small">nichts</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">vollgas</span>
+        </mat-radio-group>
+      </div>
+      <div class="selection-container">
+        <label>Wie Intensiv?</label>
+        <mat-radio-group formControlName="intensity">
+          <span class="mat-small">wasser</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">oha</span>
+        </mat-radio-group>
+      </div>
+      <div class="selection-container">
+        <label>Und wie lang gehts?</label>
+        <mat-radio-group formControlName="length">
+          <span class="mat-small">schon weg</span>
+          <mat-radio-button *ngFor="let val of [1,2,3,4,5]" [value]="val"></mat-radio-button>
+          <span class="mat-small">bis morgen</span>
+        </mat-radio-group>
+      </div>
+      <mat-form-field>
+        <input matInput placeholder="Was hast du mit deinen Geschmacksknospen erfahren?"
+               formControlName="otherTastes">
+      </mat-form-field>
     </div>
-    <button mat-raised-button [disabled]="guess.invalid" (click)="setGuess()">ZUM BIER!</button>
-  </form>
-</mat-card>
-<div class="background"></div>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Was glaubst was es is?" formControlName="guess" required>
+  </mat-form-field>
+  <div class="selection-container">
+    <mat-label>
+      Wie geil wars?*
+    </mat-label>
+    <app-star-rating (ratingUpdated)="rating = $event"></app-star-rating>
+  </div>
+  <button mat-raised-button [disabled]="guess.invalid" (click)="setGuess()">ZUM BIER!</button>
+</form>

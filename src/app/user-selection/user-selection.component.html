@@ -1,0 +1,31 @@
+<mat-list>
+  <mat-list-item *ngFor="let name of names | async"
+                 [class.preselected]="selectedName === name"
+                 (click)="selectedName = name">
+    {{name}}
+  </mat-list-item>
+  <mat-list-item>
+    <div (click)="showInput = true" class="add-user" [class.hidden]="showInput">
+      <mat-icon>add</mat-icon>
+      Degustierer hinzufügen
+    </div>
+    <div class="set-username" [class.hidden]="!showInput">
+      <mat-form-field>
+        <input matInput #newName placeholder="Wie willst du genannt werden?">
+      </mat-form-field>
+      <button mat-icon-button (click)="showInput = false">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button mat-icon-button (click)="addUser(newName.value); newName.value = ''">
+        <mat-icon>check</mat-icon>
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+
+<mat-checkbox (change)="this.cookieAllowed = $event.checked">
+  <span class="checkbox-title"><span>Willst du, dass wir uns wiedererkennen?</span>
+  <span class="mat-small">Dafür gibt es sogar einen cookie <3</span></span>
+</mat-checkbox>
+<button mat-raised-button color="primary" (click)="selectUser(selectedName)">WEITER</button>

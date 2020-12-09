@@ -6,8 +6,9 @@ export interface Beer {
   description: string;
   ingredients: string;
   hints: string;
+  beerType: string;
+  originalWort: number;
   slogan?: string;
-  hopOrigin?: string;
   website?: string;
   breweryIcon?: string;
   beerIcon?: string;

@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+
+  mat-card {
+    margin: 10px;
+    z-index: 10;
+  }
+
+  .background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.2;
+    background-color: #b6b6b6;
+    background-image: url("../../assets/background-estimating.png");
+    filter: blur(3px);
+    z-index: 1;
+  }
+
+}

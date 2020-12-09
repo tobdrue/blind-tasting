@@ -1,8 +1,13 @@
-button {
-  color: gold;
+:host {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
-  &.disabled {
-    cursor: unset;
-    pointer-events: none;
+  button {
+    color: gold;
+
+    &.disabled {
+      cursor: unset;
+      pointer-events: none;
+    }
   }
 }

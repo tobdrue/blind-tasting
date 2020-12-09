@@ -24,23 +24,57 @@
         <div *ngIf="beer.beer.slogan" class="mat-display-1">{{beer.beer.slogan}}</div>
       </div>
     </div>
-    <div class="user-stuff">
-      <div class="mat-h2">Was hast du gedacht: <span class="guessed mat-h1">{{beer.guessed}}</span></div>
+    <div class="user-stuff" *ngIf="getUser(beer) as user">
+      <div class="mat-h2">Was hast du gedacht: <span class="guessed mat-h1">{{user.guessed}}</span></div>
       <div class="mat-h2">Wie gut wars:
-        <app-star-rating [disabled]="true" [rating]="beer.rating"></app-star-rating>
+        <app-star-rating [disabled]="true" [rating]="user.rating"></app-star-rating>
+      </div>
+      <div class="other-users">
+        Was haben die anderen:
+        <div *ngFor="let otherUsers of beer.users">
+          <ng-container *ngIf="otherUsers !== user">
+            <div>{{otherUsers.name}}</div>
+            <ng-container *ngIf="!!otherUsers.guessed; else notJetRated">
+              <div class="guessed mat-h1">{{otherUsers.guessed}}</div>
+              <app-star-rating [disabled]="true" [rating]="otherUsers.rating"></app-star-rating>
+            </ng-container>
+            <ng-template #notJetRated>
+              Nix hat er!
+            </ng-template>
+          </ng-container>
+        </div>
+
+      </div>
+      <div class="additional-tasting-data-toggle" (click)="additionalTastingDataOpen = !additionalTastingDataOpen">
+        Weitere Degustationsangaben
+        <mat-icon *ngIf="additionalTastingDataOpen">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!additionalTastingDataOpen">keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="additional-tasting-data" [class.open]="additionalTastingDataOpen">
+        <div *ngIf="!!user.detailGuess.color">Farbe: {{user.detailGuess.color}}/5</div>
+        <div *ngIf="!!user.detailGuess.opacity">Klarheit: {{user.detailGuess.opacity}}/5</div>
+        <div *ngIf="!!user.detailGuess.foam">Schaum: {{user.detailGuess.foam}}/5</div>
+        <div *ngIf="!!user.detailGuess.smell">Geruch: {{user.detailGuess.smell}}</div>
+        <div *ngIf="!!user.detailGuess.sweetness">Süße: {{user.detailGuess.sweetness}}/5</div>
+        <div *ngIf="!!user.detailGuess.sourness">Säure: {{user.detailGuess.sourness}}/5</div>
+        <div *ngIf="!!user.detailGuess.bitterness">Bitterkeit: {{user.detailGuess.bitterness}}/5</div>
+        <div *ngIf="!!user.detailGuess.intensity">Intensität: {{user.detailGuess.intensity}}/5</div>
+        <div *ngIf="!!user.detailGuess.length">Abgang: {{user.detailGuess.length}}/5</div>
+        <div *ngIf="!!user.detailGuess.otherTastes">Geschmäcker: {{user.detailGuess.otherTastes}}</div>
       </div>
     </div>
     <div class="description">
       <div class="mat-body-2">Beschreibung:</div>
       <div [innerHTML]="beer.beer.description" class="mat-h2"></div>
+      <div [innerHTML]="beer.beer.hints"></div>
     </div>
     <div class="additional-info">
       <div><span class="mat-body-2">Alkohol:  </span>{{beer.beer.alcohol}}%</div>
+      <div><span class="mat-body-2">Stammwürze:  </span>{{beer.beer.originalWort}}°P</div>
       <div>
         <div class="mat-body-2">Zutaten:</div>
         <div>{{beer.beer.ingredients}}</div>
       </div>
-      {{beer.beer.hints}}
     </div>
     <div class="website">
       <span class="mat-body-2">Website:  </span>

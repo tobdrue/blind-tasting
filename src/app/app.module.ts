@@ -22,7 +22,13 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {BeerTileComponent} from './overview/beer-tile/beer-tile.component';
 import {MatDividerModule} from "@angular/material/divider";
-import { StarRatingComponent } from './star-rating/star-rating.component';
+import {StarRatingComponent} from './star-rating/star-rating.component';
+import {MatRadioModule} from "@angular/material/radio";
+import {UserSelectionComponent} from './user-selection/user-selection.component';
+import {CookieService} from "ngx-cookie-service";
+import {MatListModule} from "@angular/material/list";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { UserRateSelectionParentComponent } from './user-rate-selection-parent/user-rate-selection-parent.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,9 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     OverviewComponent,
     EstimateAndRateComponent,
     BeerTileComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    UserSelectionComponent,
+    UserRateSelectionParentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +57,12 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     MatSelectModule,
     MatSnackBarModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRadioModule,
+    MatListModule,
+    MatCheckboxModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

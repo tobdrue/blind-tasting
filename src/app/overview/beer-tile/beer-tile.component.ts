@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BeerSelection} from "../../types/beer-selection.interface";
-import {FileManagerService} from "../../services/file-manager.service";
-import {Observable} from "rxjs";
+import {BeerSelection} from '../../types/beer-selection.interface';
+import {FileManagerService} from '../../services/file-manager.service';
+import {Observable} from 'rxjs';
+import {UsernameService} from "../../services/username.service";
 
 @Component({
   selector: 'app-beer-tile',
@@ -14,10 +15,15 @@ export class BeerTileComponent implements OnInit {
   public beerSelection: BeerSelection;
   public beerIconSrc: Observable<string>;
 
-  constructor(private fileManagerService: FileManagerService) {
+  constructor(private fileManagerService: FileManagerService,
+              private usernameService: UsernameService) {
   }
 
   ngOnInit(): void {
     this.beerIconSrc = this.fileManagerService.downLoadUrl(this.beerSelection.beer.beerIcon);
+  }
+
+  public alreadyRated(): boolean {
+    return !!this.beerSelection.users.find(user => user.name === this.usernameService.username).guessed;
   }
 }

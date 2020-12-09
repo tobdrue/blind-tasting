@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../services/user.service';
+import {TastingSetService} from '../services/tasting-set.service';
 
 @Component({
   selector: 'app-overview',
@@ -8,7 +8,7 @@ import {UserService} from '../services/user.service';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor(public readonly userService: UserService) {
+  constructor(public readonly tastingSetService: TastingSetService) {
   }
 
   ngOnInit(): void {

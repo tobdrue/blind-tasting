@@ -1,0 +1,50 @@
+:host {
+  display: grid;
+  grid-gap: 25px;
+  padding-top: 10px;
+
+  mat-list-item:not(:last-of-type) {
+    cursor: pointer;
+
+    &.preselected {
+      background-color: #b6b6b630;
+    }
+  }
+
+  mat-list-item div {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s;
+    align-items: center;
+    padding-top: 20px;
+    width: calc(100% - 16px);
+
+    &.add-user {
+      cursor: pointer;
+      display: flex;
+    }
+
+    &.set-username {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+    }
+
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, step-end visibility 0.3s;
+    }
+  }
+
+  .checkbox-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    span {
+      white-space: normal;
+      padding: 5px;
+    }
+  }
+}

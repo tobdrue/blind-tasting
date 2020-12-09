@@ -1,15 +1,17 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {Observable} from 'rxjs';
-import {UserService} from './services/user.service';
+import {TastingSetService} from './services/tasting-set.service';
 import {map} from 'rxjs/operators';
+import {UsernameService} from './services/username.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlreadyViewedGuard implements CanActivate {
 
-  constructor(private readonly userService: UserService,
+  constructor(private readonly tastingSetService: TastingSetService,
+              private readonly usernameService: UsernameService,
               private readonly router: Router) {
   }
 
@@ -18,11 +20,10 @@ export class AlreadyViewedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     const beerId = next.queryParamMap.get('beerId');
-    this.userService.nextUserId = next.queryParamMap.get('userId');
-    return this.userService.hasDrunkBeer(beerId).pipe(
+    this.tastingSetService.nextTastingSetId = next.queryParamMap.get('userId');
+    return this.tastingSetService.hasDrunkBeer(beerId, this.usernameService.username).pipe(
       map(hasDrunk => hasDrunk ? true : this.router.createUrlTree(['/estimate'], {
-        queryParams: {beerId},
-        queryParamsHandling: 'merge'
+        queryParams: next.queryParams
       })));
   }
 
