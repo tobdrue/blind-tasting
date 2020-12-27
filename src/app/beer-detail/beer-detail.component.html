@@ -29,7 +29,7 @@
       <div class="mat-h2">Wie gut wars:
         <app-star-rating [disabled]="true" [rating]="user.rating"></app-star-rating>
       </div>
-      <div class="other-users">
+      <div *ngIf="beer.users.length > 1" class="other-users">
         Was haben die anderen:
         <div *ngFor="let otherUsers of beer.users">
           <ng-container *ngIf="otherUsers !== user">
@@ -45,7 +45,7 @@
         </div>
 
       </div>
-      <div class="additional-tasting-data-toggle" (click)="additionalTastingDataOpen = !additionalTastingDataOpen">
+      <div *ngIf="userHasDetailGuess(user.detailGuess)" class="additional-tasting-data-toggle" (click)="additionalTastingDataOpen = !additionalTastingDataOpen">
         Weitere Degustationsangaben
         <mat-icon *ngIf="additionalTastingDataOpen">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="!additionalTastingDataOpen">keyboard_arrow_down</mat-icon>

@@ -1,18 +1,12 @@
 {
   "hosting": [
     {
+      "target": "blind-tasting",
       "public": "dist/blind-tasting",
       "ignore": [
         "firebase.json",
         "**/.*",
         "**/node_modules/**"
-      ]
-    },
-    {
-      "target": "blind-tasting",
-      "public": "dist/blind-tasting",
-      "ignore": [
-        "**/.*"
       ],
       "headers": [
         {

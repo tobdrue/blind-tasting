@@ -4,7 +4,7 @@ import {UsernameService} from '../services/username.service';
 import {map, take} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-selection',
@@ -25,21 +25,32 @@ export class UserSelectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.names = this.tastingSetService.allTastingSetBeers.pipe(map(tastingSet => tastingSet[0].users.map<string>(user => user.name)));
+    this.names = this.tastingSetService.allTastingSetBeers.pipe(
+      map(beers => this.unifyArray(this.flatArray<string>(
+        beers.filter(beer => beer.users).map(beer => beer.users?.map<string>(user => user.name))))));
   }
 
-  addUser(name): void {
+  private flatArray<T>(arrayOfArrays: T[][]): T[]{
+    return [].concat(...arrayOfArrays);
+  }
+
+  private unifyArray(array: string[]): string[] {
+    return [...new Set(array)];
+  }
+
+  addUser(name: string): void {
     this.names.pipe(take(1)).subscribe(names => {
       if (!names.find(existingName => name === existingName)) {
         this.tastingSetService.addUser(name);
         this.showInput = false;
+        this.selectedName = name;
       } else {
         this.snackBar.open('Denk dir was neues aus!', 'X');
       }
     });
   }
 
-  selectUser(name): void {
+  selectUser(name: string): void {
     this.usernameService.username = name;
     if (this.cookieAllowed) {
       this.usernameService.cookie = name;

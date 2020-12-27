@@ -7,6 +7,7 @@ import {FileManagerService} from '../services/file-manager.service';
 import {switchMap} from 'rxjs/operators';
 import {User} from "../types/user.interface";
 import {UsernameService} from "../services/username.service";
+import { DetailGuess } from '../types/detail-guess.interface';
 
 @Component({
   selector: 'app-beer-detail',
@@ -35,5 +36,18 @@ export class BeerDetailComponent implements OnInit {
 
   public getUser(beer: BeerSelection): User {
     return beer.users.find(user => user.name === this.usernameService.username);
+  }
+
+  public userHasDetailGuess(detailGuess: DetailGuess): boolean {
+    return !!detailGuess?.bitterness ||
+      !!detailGuess.color ||
+      !!detailGuess.foam ||
+      !!detailGuess.intensity ||
+      !!detailGuess.length ||
+      !!detailGuess.opacity ||
+      !!detailGuess.otherTastes ||
+      !!detailGuess.smell ||
+      !!detailGuess.sourness ||
+      !!detailGuess.sweetness;
   }
 }

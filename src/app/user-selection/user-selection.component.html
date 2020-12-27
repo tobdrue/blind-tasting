@@ -28,4 +28,7 @@
   <span class="checkbox-title"><span>Willst du, dass wir uns wiedererkennen?</span>
   <span class="mat-small">Dafür gibt es sogar einen cookie <3</span></span>
 </mat-checkbox>
-<button mat-raised-button color="primary" (click)="selectUser(selectedName)">WEITER</button>
+<button mat-raised-button 
+color="primary"
+ (click)="selectUser(selectedName)"
+ [disabled]="!selectedName">WEITER</button>

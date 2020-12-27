@@ -29,6 +29,7 @@ import {CookieService} from "ngx-cookie-service";
 import {MatListModule} from "@angular/material/list";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { UserRateSelectionParentComponent } from './user-rate-selection-parent/user-rate-selection-parent.component';
+import { PlanningComponent } from './planning/planning.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserRateSelectionParentComponent } from './user-rate-selection-parent/u
     BeerTileComponent,
     StarRatingComponent,
     UserSelectionComponent,
-    UserRateSelectionParentComponent
+    UserRateSelectionParentComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,

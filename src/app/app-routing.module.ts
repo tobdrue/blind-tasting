@@ -7,7 +7,8 @@ import {EstimateAndRateComponent} from './estimate-and-rate/estimate-and-rate.co
 import {UserSelectionComponent} from './user-selection/user-selection.component';
 import {UserSelectionGuard} from './user-selection.guard';
 import {UserRateSelectionParentComponent} from './user-rate-selection-parent/user-rate-selection-parent.component';
-import {AnonymousLoginGuard} from "./anonymous-login.guard";
+import {AnonymousLoginGuard} from './anonymous-login.guard';
+import { PlanningComponent } from './planning/planning.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
       {
         path: '', component: UserRateSelectionParentComponent, children: [
           {path: 'estimate', component: EstimateAndRateComponent},
-          {path: 'user-selection', component: UserSelectionComponent}
+          {path: 'user-selection', component: UserSelectionComponent},
+          {path: 'planning', component: PlanningComponent}
         ]
       }
     ]
