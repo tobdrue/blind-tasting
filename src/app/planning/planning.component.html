@@ -1,38 +1,85 @@
-<div>Hey {{name}},</div>
-<div>
-	schön, dass du es geschafft hast den QR-Code zu scannen und damit herzlich Wilkommen bei unserer
-	Bier-Blindverkostung.<br>
-	Was erwartet dich:
-	<ol>
-		<li>drei leckere Biere (die du bestimmt schon mal davor getrunken hast)</li>
-		<li>durch die Blindverkostung eine außergewöhnliche Trinkerfahrung</li>
-		<li>mit dem Degustierleitfaden ein völlig neue Geschmackserlebnis</li>
-	</ol>
-</div>
-<div>
-	Für die Verkostung eines Bieres ist es zunächst einmal wichtig, dass dieses die richtige Temperatur hat (um die
-	5-7°C).<br>
-	Dann kannst du den QR-Code auf der Flasche abscannen und dem Link folgen der dahinter steckt.<br>
-	Um deine Bewertungen auch dir zuordnen zu können, vergebe als ersten einen Namen und wähle diesen aus. <br>
-	Anschließen kommst du auch schon auf deine Bewertungsseite. Hier sind die zwei Kernelemente zunächst, der Biername
-	und wie gut dir das Bier geschmeckt hat.<br>
-	Als kleine Hilfestellung, welche Punkte dabei eine Rolle spielen könnten, hast du die Möglichkeit einen
-	Degustationsbogen begleitend zu deinem Biererlebnis auszufüllen.<br>
-	Daher ist es Ratsam, erst dann das Bier zu öffnen und in dein Glas einzuschenken (wir haben jetzt erstmal nur
-	Helle), da von dem ersten Berührungspunkt bis zum letzten Geschmacksabgang das jeweilige Bier ein Erlebnis ist.<br>
-	Nachdem du deine Tipps abgegeben hast, erfährst du natürlich auch noch des Rätsels Lösung und wie nah oder auch fern
-	du mit deinem Tipp liegst.
-</div>
-<div>
-	Als würde das noch nicht ausreichen, hast nicht nur du die drei Flaschen von mir bekommen, sondern auch ein paar
-	weiterer alter Kumpanen.
-	Dadurch ergibt sich für uns die einmalige Möglichkeit dieses Erlebnis miteinander (online) teilen zu können. <br>
-	Dafür habe ich uns bereits mal <a
-		href="https://doodle.com/poll/rkc8y3fkkaacumkr?utm_source=poll&utm_medium=link">hier ein Doodle</a> erstellt,
-	dass wir auch mal gemeinsam zusammen finden.
-	Für die Verkostung selbst würde ich Discord vorschlagen. Der Server heißt: <a
-		href="https://discord.gg/sHGUJKQUJG">BlindTasting</a>
-</div>
-<div>
-	Also stellt schon mal das Bier kalt und bis bald!!
-</div>
+<ng-container *ngIf="!tastingId">
+	<div>Hey {{name}},</div>
+	<div>
+		schön, dass du es geschafft hast den QR-Code zu scannen und damit herzlich Wilkommen bei unserer
+		Bier-Blindverkostung.<br>
+		Was erwartet dich:
+		<ol>
+			<li>drei leckere Biere (die du bestimmt schon mal davor getrunken hast)</li>
+			<li>durch die Blindverkostung eine außergewöhnliche Trinkerfahrung</li>
+			<li>mit dem Degustierleitfaden ein völlig neue Geschmackserlebnis</li>
+		</ol>
+	</div>
+		<div>
+		Als würde das noch nicht ausreichen, hast nicht nur du die drei Flaschen von mir bekommen, sondern auch ein paar
+		weiterer alter Kumpanen.
+		Dadurch ergibt sich für uns die einmalige Möglichkeit dieses Erlebnis miteinander (online) teilen zu können.
+		<br>
+		Dafür habe ich uns bereits mal <a
+			href="https://doodle.com/poll/rkc8y3fkkaacumkr?utm_source=poll&utm_medium=link">hier ein Doodle</a>
+		erstellt,
+		dass wir auch mal gemeinsam zusammen finden.
+		Für die Verkostung selbst würde ich Discord vorschlagen. Der Server heißt: <a
+			href="https://discord.gg/sHGUJKQUJG">BlindTasting</a>
+	</div>
+	<div><strong>Anleitung:</strong></div>
+	<div>
+		Für die Verkostung eines Bieres ist es zunächst einmal wichtig, dass dieses die richtige Temperatur hat (um die
+		5-7°C).<br>
+		Dann kannst du den QR-Code auf der Flasche abscannen und dem Link folgen der dahinter steckt.<br>
+		Um deine Bewertungen auch dir zuordnen zu können, vergebe als ersten einen Namen und bestätige diesen. <br>
+		Anschließen kommst du auch schon auf deine Bewertungsseite. Hier sind die zwei Kernelemente zunächst, der
+		Biername
+		und wie gut dir das Bier geschmeckt hat.<br>
+		Als kleine Hilfestellung, welche Punkte dabei eine Rolle spielen könnten, hast du die Möglichkeit einen
+		Degustationsbogen begleitend zu deinem Biererlebnis auszufüllen.<br>
+		Daher ist es Ratsam, erst dann das Bier zu öffnen und in dein Glas einzuschenken (wir haben jetzt erstmal nur
+		Helle), da von dem ersten Berührungspunkt bis zum letzten Geschmacksabgang das jeweilige Bier ein Erlebnis
+		ist.<br>
+		Nachdem du deine Tipps abgegeben hast, erfährst du natürlich auch noch des Rätsels Lösung und wie nah oder auch
+		fern
+		du mit deinem Tipp liegst.
+	</div>
+	<div>
+		Also stellt schon mal das Bier kalt und bis bald!!
+	</div>
+</ng-container>
+<ng-container *ngIf="!!tastingId">
+	<div>Hallo lieber Opa und liebe Emina,</div>
+	<div>
+		<div>
+			schön, dass ihr es geschafft hast den QR-Code zu scannen und damit herzlich Wilkommen bei unserer
+			Bier-Blindverkostung.<br>
+			Was erwartet euch:
+			<ol>
+				<li>drei leckere Biere (die ihr evtl auch schon mal davor getrunken hast)</li>
+				<li>durch die Blindverkostung eine außergewöhnliche Trinkerfahrung</li>
+				<li>mit dem Degustierleitfaden ein völlig neue Geschmackserlebnis</li>
+			</ol>
+		</div>
+	</div>
+	<div>Als würde das nicht schon reichen, können wir die Biere gemeinsam online verkosten. 
+		Wir können uns dann einfach über Whatsapp oder Skype anrufen und einen gemütlichen Abend verbringen.<br>
+		Das heißt ich habe die selben drei Biere für mich unerkennlich gemacht und kann mit einem kleinen Vorteil mit degustieren. 
+	</div>
+	<div><strong>Anleitung:</strong></div>
+	<div>
+		Für die Verkostung eines Bieres ist es zunächst einmal wichtig, dass dieses die richtige Temperatur hat (um die
+		5-7°C).<br>
+		Dann könnt ihr den QR-Code auf der Flasche abscannen und dem Link folgen der dahinter steckt. <br>
+		Um euere Bewertungen auch zuordnen zu können, vergebet als ersten einen Namen und wählt diesen aus. <br>
+		
+		Wenn ihr wollt könnt ihr eure Berwertungen auch unabhängig voneinander abgeben. Dafür mit unterschiedlichen Handys den Code scannen oder angeben, dass ihr den Namen nicht speicher wollt und die Seite nach einer Bewertung neu laden.<br>
+		Anschließen kommt ihr auch schon auf eure Bewertungsseite. Hier sind die zwei Kernelemente zunächst, der
+		Biername und wie gut euch das Bier geschmeckt hat.<br>
+		Als kleine Hilfestellung, welche Punkte dabei eine Rolle spielen könnten, habt ihr die Möglichkeit einen
+		Degustationsbogen begleitend zu eurem Biererlebnis auszufüllen.<br>
+		Daher ist es Ratsam, erst dann das Bier zu öffnen und in das Glas einzuschenken, 
+		da von dem ersten Berührungspunkt bis zum letzten Geschmacksabgang das jeweilige Bier ein Erlebnis ist.<br>
+		Nachdem ihr eure Tipps abgegeben hast, erfahrt ihr natürlich auch noch des Rätsels Lösung und wie nah oder auch
+		fern ihr mit eurem Tipp liegt.
+	</div>
+	<div>
+		Also stellt schon mal das Bier kalt und bis bald!!
+	</div>
+</ng-container>
